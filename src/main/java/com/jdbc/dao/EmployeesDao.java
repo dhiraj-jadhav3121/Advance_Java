@@ -50,9 +50,15 @@ public class EmployeesDao {
         Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/employees", "root", "Amol@1234");
         Statement s = c.createStatement();
         ResultSet rs = s.executeQuery("select * from student where id = 1");
+        System.out.println(" Query is Executing....");
 
+        System.out.println("id:" + "\t" + "Name" + "\t" + "City" + "\t" + "profile");
         if (rs.next()) {
-            System.out.println(" Data is Executed..");
+            int id = rs.getInt("id");
+            String name = rs.getString("name");
+            String city = rs.getString("city");
+            String profile = rs.getString("profile");
+            System.out.println(id + "\t" + name + "\t" + city + "\t" + profile);
         } else {
             System.out.println(" Data is Not-Executed..");
 
@@ -67,12 +73,14 @@ public class EmployeesDao {
 
         Statement s = c.createStatement();
         ResultSet rs = s.executeQuery("select * from student");
+        System.out.println("id:" + "\t" + "Name" + "\t" + "City" + "\t" + "profile");
 
-        if (rs.next()) {
-            System.out.println("Get all Record Successfully ");
-
-        } else {
-            System.out.println("Not-Get all Record Successfully ");
+        while (rs.next()) {
+            int id = rs.getInt("id");
+            String name = rs.getString("name");
+            String city = rs.getString("city");
+            String profile = rs.getString("profile");
+            System.out.println(id + "\t" + name + "\t" + city + "\t" + profile);
 
         }
         c.close();

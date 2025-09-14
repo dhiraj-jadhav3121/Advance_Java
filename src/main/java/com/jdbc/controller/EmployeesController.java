@@ -13,7 +13,6 @@ public class EmployeesController {
         ss.getAllRecord();
 
 
-
     }
 
 }
